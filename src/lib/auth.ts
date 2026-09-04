@@ -1,12 +1,13 @@
 import { betterAuth } from "better-auth";
-import { BETTER_AUTH_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "$env/static/private";
+import { gcid, gcs } from "$app/env/private";
+import { betterAuthUrl } from "$app/env/public";
 
 export const auth = betterAuth({
-  baseURL: BETTER_AUTH_URL,
+  baseURL: betterAuthUrl,
   socialProviders: {
     google: {
-      clientId: GOOGLE_CLIENT_ID as string,
-      clientSecret: GOOGLE_CLIENT_SECRET as string,
+      clientId: gcid as string,
+      clientSecret: gcs as string,
     },
   }
 });

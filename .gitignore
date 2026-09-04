@@ -2,3 +2,4 @@ node_modules
 .delta
 /.svelte-kit
 .env
+src/env.ts
