@@ -33,7 +33,7 @@
                 });
             }}
         >
-            Continue with Google
+            Login with Google
         </button>
     {/if}
 </div>
