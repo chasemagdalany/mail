@@ -1,7 +1,11 @@
-import { auth } from "$lib/auth"; // path to your auth file
+import { auth } from "$lib/auth";
 import { svelteKitHandler } from "better-auth/svelte-kit";
 import { building } from '$app/env'
 
 export async function handle({ event, resolve }) {
-    return svelteKitHandler({ event, resolve, auth, building });
+  const session = await auth.api.getSession({
+    headers: event.request.headers,
+  })
+  
+  return svelteKitHandler({ event, resolve, auth, building });
 }

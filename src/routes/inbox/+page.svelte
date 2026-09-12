@@ -19,7 +19,7 @@
                 Sign Out
             </button>
             <ul>
-                {#each await getMessages($session.data.session.token) as message}
+                {#each await getMessages() as message}
                     <li>{message.id} - {message.threadId}</li>
                 {/each}
             </ul>
