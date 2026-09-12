@@ -1,13 +1,14 @@
 import { betterAuth } from "better-auth";
-import { gcid, gcs } from "$app/env/private";
-import { betterAuthUrl } from "$app/env/public";
+import { env as privateEnv } from '$env/dynamic/private'
+import { env as publicEnv } from "$env/dynamic/public"
 
 export const auth = betterAuth({
-  baseURL: betterAuthUrl,
+  baseURL: publicEnv.PUBLIC_BETTER_AUTH_URL,
   socialProviders: {
     google: {
-      clientId: gcid as string,
-      clientSecret: gcs as string,
+      clientId: privateEnv.GOOGLE_CLIENT_ID as string,
+      clientSecret: privateEnv.GOOGLE_CLIENT_SECRET as string,
+      scope: ['https://www.googleapis.com/auth/gmail.readonly'],
     },
   }
 });
